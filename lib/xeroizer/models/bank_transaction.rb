@@ -21,6 +21,7 @@ module Xeroizer
       date :fully_paid_on_date
       string :bank_transaction_id, :api_name => "BankTransactionID"
       boolean :is_reconciled
+      string :reference
 
       alias_method :reconciled?, :is_reconciled
 
