@@ -45,27 +45,27 @@ module Xeroizer
         self.line_items.size > 0
       end
 
-      def sub_total=(value); raise SettingTotalDirectlyNotSupported.new(:sub_total); end
-      def total_tax=(value); raise SettingTotalDirectlyNotSupported.new(:total_tax); end
-      def total=(value);     raise SettingTotalDirectlyNotSupported.new(:total);     end
+      #def sub_total=(value); raise SettingTotalDirectlyNotSupported.new(:sub_total); end
+      #def total_tax=(value); raise SettingTotalDirectlyNotSupported.new(:total_tax); end
+      #def total=(value);     raise SettingTotalDirectlyNotSupported.new(:total);     end
 
-      def total; sub_total + total_tax; end
+      #def total; sub_total + total_tax; end
 
-      def sub_total
-        if ought_to_recalculate_totals?
-          result = LineItemSum.sub_total(self.line_items)
-          result -= total_tax if line_amount_types == 'Inclusive'
-          result
-        else
-          attributes[:sub_total]
-        end
-      end
+      #def sub_total
+      #  if ought_to_recalculate_totals?
+      #    result = LineItemSum.sub_total(self.line_items)
+      #    result -= total_tax if line_amount_types == 'Inclusive'
+      #    result
+      #  else
+      #    attributes[:sub_total]
+      #  end
+      #end
 
-      def total_tax
-        return ought_to_recalculate_totals? ?
-          LineItemSum.total_tax(self.line_items) :
-          attributes[:total_tax]
-      end
+      #def total_tax
+      #  return ought_to_recalculate_totals? ?
+      #    LineItemSum.total_tax(self.line_items) :
+      #    attributes[:total_tax]
+      #end
 
       private
 
