@@ -30,7 +30,7 @@ module Xeroizer
       has_many :line_items, :model_name => 'LineItem'
       belongs_to :bank_account, :model_name => 'BankAccount'
 
-      float :total
+      string :total
 
       validates_inclusion_of :line_amount_types,
         :in => Xeroizer::Record::LINE_AMOUNT_TYPES, :allow_blanks => false
